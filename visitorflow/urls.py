@@ -1,10 +1,12 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from agent.views import report
+
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'visitorflow.views.home', name='home'),
     # url(r'^visitorflow/', include('visitorflow.foo.urls')),
@@ -15,5 +17,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^agent/report/', 'agent.views.report', name='agent_report')
-)
+    url(r'^agent/report/', report, name='agent_report')
+]
